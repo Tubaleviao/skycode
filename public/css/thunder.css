@@ -1,0 +1,28 @@
+body {
+  background:black;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height: 100vh;
+}
+svg {
+  position:absolute;
+  left:0px;
+  top:0px;
+  filter: drop-shadow( 0px 0px 5px blue ) drop-shadow( 0px 0px 10px blue ) drop-shadow(0px 0px 10px rgb(50,50,255));
+}
+svg[id="thunder_svg2"] path {
+  animation: dash 20s linear infinite alternate;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 500;
+    stroke-dasharray: 5 10;
+  }
+  to {
+    stroke-dashoffset: 500;
+    stroke-dasharray: 131 44;
+  }
+}
