@@ -1,16 +1,10 @@
 const express = require('express'),
-  https = require('https'),
+  http = require('http'),
   bodyParser = require('body-parser'),
   app = express(),
-  session = require('express-session'),
-  fs = require('fs')
+  session = require('express-session')
 
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/skycode.work/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/skycode.work/fullchain.pem')
-}
-
-const server = https.createServer(options, app),
+const server = http.createServer(app),
   io = require('socket.io')(server),
   session_secret = process.env.SESSION_SECRET || 'nosecrethereisusedsoyeah'
 
@@ -28,4 +22,4 @@ app.get('*', function(req, res){res.send('Nothing here.')})
 
 //io.of('/bitcoin').on('connection', code.bitcoin)
 
-server.listen(443, function(){console.log("Server running at the port %d", 443)})
+server.listen(3000, function(){console.log("Server running at the port %d", 3000)})
